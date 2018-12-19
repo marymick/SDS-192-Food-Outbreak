@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+<meta name="author" content="K. Munyenyembe, M. Mick and E. Sui" />
+
+
+<title>How safe is your food? Food Outbreaks in the Midwest from 1998 to 2015</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #f8f8f8; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+pre, code { background-color: #f8f8f8; }
+code > span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code > span.dt { color: #204a87; } /* DataType */
+code > span.dv { color: #0000cf; } /* DecVal */
+code > span.bn { color: #0000cf; } /* BaseN */
+code > span.fl { color: #0000cf; } /* Float */
+code > span.ch { color: #4e9a06; } /* Char */
+code > span.st { color: #4e9a06; } /* String */
+code > span.co { color: #8f5902; font-style: italic; } /* Comment */
+code > span.ot { color: #8f5902; } /* Other */
+code > span.al { color: #ef2929; } /* Alert */
+code > span.fu { color: #000000; } /* Function */
+code > span.er { color: #a40000; font-weight: bold; } /* Error */
+code > span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #000000; } /* Constant */
+code > span.sc { color: #000000; } /* SpecialChar */
+code > span.vs { color: #4e9a06; } /* VerbatimString */
+code > span.ss { color: #4e9a06; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #000000; } /* Variable */
+code > span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code > span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code > span.ex { } /* Extension */
+code > span.at { color: #c4a000; } /* Attribute */
+code > span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code > span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+div.sourceCode {
+  overflow-x: visible;
+}
+</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
+
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Food Outbreaks in the Midwest</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Intro</a>
+</li>
+<li>
+  <a href="more_info.html">More info</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+<div class="btn-group pull-right">
+<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
+
+
+<h1 class="title toc-ignore">How safe is your food? Food Outbreaks in the Midwest from 1998 to 2015</h1>
+<h4 class="author"><em>K. Munyenyembe, M. Mick and E. Sui</em></h4>
+<h4 class="date"><em>Last updated on 2018-12-19</em></h4>
+
+</div>
+
+
+<!--
+Comments in HTML are like this! 
+-->
+<div id="more-information" class="section level1">
+<h1>More Information</h1>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
+<span class="kw">library</span>(readr)
+food_outbreaks &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;outbreaks.csv&quot;</span>)
+food_outbreaks &lt;-<span class="st"> </span>food_outbreaks <span class="op">%&gt;%</span>
+<span class="kw">filter</span>(State <span class="op">==</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Illinois&quot;</span>, <span class="st">&quot;Indiana&quot;</span>, <span class="st">&quot;Iowa&quot;</span>, <span class="st">&quot;Kansas&quot;</span>, <span class="st">&quot;Michigan&quot;</span>, <span class="st">&quot;Minnesota&quot;</span>,<span class="st">&quot;Missouri&quot;</span>,<span class="st">&quot;Nebraska&quot;</span>,<span class="st">&quot;North Dakota&quot;</span>,<span class="st">&quot;Ohio&quot;</span>,<span class="st">&quot;South Dakota&quot;</span>,<span class="st">&quot;Wisconsin&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span>
+<span class="co">#select only information we are interested in </span>
+<span class="kw">select</span>(State, Year, Month, Status, Illnesses, Hospitalizations, 
+Fatalities, Species ) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span>
+<span class="co">#filter for incidents with confirmed status </span>
+<span class="kw">filter</span>(Status <span class="op">==</span><span class="st"> &quot;Confirmed&quot;</span>)
+<span class="co">#replace all the n/a entries with a value of 0 </span>
+food_outbreaks[<span class="kw">is.na</span>(food_outbreaks)] &lt;-<span class="st"> </span><span class="dv">0</span>
+<span class="co"># food_ outbreaks_tidy </span>
+food_outbreaks_tidy &lt;-<span class="st"> </span>food_outbreaks <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>(State, Year, Illnesses, Hospitalizations, Fatalities)<span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Total =</span> Illnesses <span class="op">+</span><span class="st"> </span>Hospitalizations <span class="op">+</span><span class="st"> </span>Fatalities) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">gather</span>(Effect, Cases, <span class="kw">c</span>(<span class="st">&quot;Illnesses&quot;</span>, <span class="st">&quot;Hospitalizations&quot;</span>, <span class="st">&quot;Fatalities&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">select</span>(State, Year, Species, Effect, Cases, Total)
+<span class="co">#line graph of outbreaks over time by State </span>
+<span class="kw">ggplot</span>(<span class="dt">data =</span> food_outbreaks_tidy, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> Year, <span class="dt">y =</span> Total)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span><span class="st"> </span><span class="kw">facet_wrap</span>(<span class="op">~</span>State, <span class="dt">nrow =</span> <span class="dv">3</span>) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Year&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Number of Individuals Affected&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;Outbreak Trends in Midwest Over Time&quot;</span>, <span class="dt">subtitle =</span> <span class="st">&quot;State by State from 1998-2015&quot;</span>)</code></pre></div>
+<p><img src="more_info_files/figure-html/unnamed-chunk-1-1.png" width="960" /> This line graph shows the number of individuals affected by foodborne diseases in the Midwest from 1998 to 2015. The total number of affected individuals over the years varies by state. If we focus on the number of individuals affected by the outbreaks, we can see that Illinois has more variability compared to Indiana. We speculate that this may be due to factors not accounted for in the data. We can also observe outbreaks in certain years by a hike in the number of individuals affected in states such as Michigan. The number of outbreaks and the number of individuals affected may be due to factors such as policy enforcement, population density, and socioeconomic status rather than only federal safety standards and population size. This may account for the variability observed from state to state, as we see that even though some states have nearly the same number of affected individuals, they vary on the rate of outbreaks from year to year, for example, Indiana and Minnesota have similar numbers of affected individuals but Minnesota has more variability than Indianna.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Seperate by Species info</span>
+by_species &lt;-<span class="st"> </span>food_outbreaks_tidy <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>(Year, Species, Effect) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">Total=</span> <span class="kw">sum</span>(Cases))
+<span class="co">#Plot by species and effect</span>
+<span class="kw">ggplot</span>(<span class="dt">data =</span> by_species, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> Year, <span class="dt">y=</span> Total, <span class="dt">fill =</span> Effect)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_col</span>() <span class="op">+</span><span class="st"> </span><span class="kw">scale_fill_brewer</span>(<span class="dt">palette=</span><span class="st">&quot;Dark2&quot;</span>) <span class="op">+</span>
+<span class="kw">facet_wrap</span>(<span class="op">~</span>Species, <span class="dt">nrow =</span> <span class="dv">7</span>) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Year&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Number of Individuals Affected&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;Outbreaks by Species/Toxin&quot;</span>)</code></pre></div>
+<p><img src="more_info_files/figure-html/unnamed-chunk-2-1.png" width="768" /></p>
+<p>Our final graph shows the type of species involved in these outbreaks and their effects on the Midwest states. Grouping the number of cases of outbreaks in these states by species shows that certain species have been more prevalent during certain periods of time. Some species have higher outbreak effects compared to the others, for example, Norovirus genotype II has higher infection numbers than Hepatitis A. Some agents are bacterial while other are viral, and a few outbreaks are due to chemical contaminations. The data also show that certain species are more serious, as they are associated with more hospitalizations (Noroviruses and Salmonella), though there was only one confirmed fatality in the Midwest over this period (a shiga toxin-producing Escherichia coli case).</p>
+<p>This implies that some species more infectious than others in a food related setting. The rise in infection rate of certain species could also be linked to either mutations within the species that lead to higher pathogenicity, or environmental factors such as food safety practices.</p>
+<p>According to the Centers of Diseases and Control (CDC), Salmonella virus causes about 1.2 million illnesses, 23,000 hospitalizations and 450 deaths in the United States every year and food is the main source of these illnesses. Our data show that noroviruses and salmonella are the most frequent agents in the midwest that cause foodborne diseases. The trends of these three virus show that they are more prevalent than others. Therefore, our data is consistent with the CDC statistics, which claim that salmonella is one of the most deadly virus for foodborne diseases.</p>
+<p>While number of people affected by food outbreaks remains fairly steady and is slightly decreasing in the Midwest, there may be factors that increase the risk of getting infected, such as the species of an outbreak or the residence state. There are many more factors that could be explored, such as whether diet or socioeconomic status put you more at risk for infection.</p>
+<p>References:</p>
+<p>Centers For Disease Control and Prevention. Foodborne Disease Outbreaks,1998-2015. Web.19 December, 2018.<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a></p>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p><a href="https://www.kaggle.com/cdc/foodborne-diseases" class="uri">https://www.kaggle.com/cdc/foodborne-diseases</a><a href="#fnref1">↩</a></p></li>
+</ol>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
